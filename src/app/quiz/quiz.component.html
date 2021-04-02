@@ -1,0 +1,53 @@
+
+
+
+
+<div class="container p-5">
+    <div class ="row">
+        <div class ="col-sm-8 offset-2">
+          <div *ngIf="currentQuiz <5">
+     
+         <p class ="text-center">{{currentQuiz +1}}-{{qz.length}}</p>  
+            <h1>{{ qz[currentQuiz].question }}</h1>
+            <ul class ="list-group"*ngFor="let quiz of qz[currentQuiz].answer">
+            <lable>
+      <li class="list-group-item" appBackground [correctAnswer]="quiz.correct">
+         
+ 
+        <input type="radio" name="options"(change)="onAnswer(quiz.correct)" [disabled]="answerSelected">
+          {{ quiz.option }}</li>
+            </lable>
+          </ul>
+        </div>
+         
+     <div *ngIf="currentQuiz >4">
+             <button class="btn btn-success btn-block"(click)="showResult()">Show Result</button>
+         <div *ngIf="result">
+           <br>
+           <br>
+           <br>
+           <br>
+       
+          <h2 style="color:blue;">   Coreect Answers:{{ correctAnswers }} <samp style="color: black;">   | </samp>  <mark style="color: red;">  IncorrectAnswers :{{ incorrectAnswers }} </mark></h2>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br><!--
+             <div *ngIf="result">
+              <button type="button" class="btn btn-secondary"style="float:center">Next</button>
+             <div *ngIf="next">
+         
+              <h2 *ngIf="true" style="color:blue;"> Congratulations:{{ Pass }}  </h2>  
+              <h2  *ngIf="false"style="color: red;">  Congratulations :{{ Failed }} </h2>-->
+    
+         
+            </div>
+          </div >
+        </div>
+<!--
+        <button class="mat-focus-indicator mat-raised-button mat-button-base" mat-raised-button=""><span class="mat-button-wrapper">Open file</span><span class="mat-button-ripple mat-ripple" matripple="" ng-reflect-centered="false" ng-reflect-disabled="false" ng-reflect-trigger="[object HTMLButtonElement]"></span><span class="mat-button-focus-overlay"></span></button>-->
